@@ -78,6 +78,10 @@ function cluster.reload(config)
 	skynet.call(clusterd, "lua", "reload", config)
 end
 
+function cluster.remove_send_node_cache(node)
+	sender[node] = nil
+end
+
 function cluster.proxy(node, name)
 	return skynet.call(clusterd, "lua", "proxy", node, name)
 end
